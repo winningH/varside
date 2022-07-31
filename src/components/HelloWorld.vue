@@ -39,6 +39,8 @@
         <el-link type="primary">详情</el-link>
       </el-table-column>
     </el-table>
+
+    <el-button type="primary" @click="submit">提交</el-button>
   </div>
 </template>
 
@@ -70,6 +72,12 @@
           date: '07' + i,
           amt: '10000' + i
         })
+      }
+    },
+
+    methods: {
+      submit() {
+        this.$message.warning('iframe 提示信息测试')
       }
     }
   }
