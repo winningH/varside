@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello" ref="hello">
     <h1>{{ msg }}</h1>
 
     <el-form label-width="120px">
@@ -40,7 +40,7 @@
       </el-table-column>
     </el-table>
 
-    <el-button type="primary" @click="submit">提交</el-button>
+    <el-button style="margin-top: 30px" type="primary" @click="submit">提交</el-button>
   </div>
 </template>
 
@@ -82,6 +82,3 @@
     }
   }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
