@@ -12,6 +12,12 @@
     name: 'HomeView',
     components: {
       HelloWorld
+    },
+
+    mounted() {
+      this.$nextTick(() => {
+        console.log('/', document.documentElement.scrollHeight)
+      })
     }
   }
 </script>

@@ -36,7 +36,7 @@
         :key="t.prop"
       ></el-table-column>
       <el-table-column align="center" label="操作">
-        <el-link type="primary">详情</el-link>
+        <el-link type="primary" @click="toDetail">详情</el-link>
       </el-table-column>
     </el-table>
 
@@ -78,6 +78,10 @@
     methods: {
       submit() {
         this.$message.warning('iframe 提示信息测试')
+      },
+
+      toDetail() {
+        this.$router.push('/about')
       }
     }
   }
