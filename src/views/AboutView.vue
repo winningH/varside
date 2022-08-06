@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about" ref="about">
     <h1>This is an about page</h1>
     <div class="block"></div>
 
@@ -14,6 +14,7 @@
     mounted() {
       this.$nextTick(() => {
         console.log('/about', document.documentElement.scrollHeight)
+        console.log('offset', document.documentElement.offsetHeight)
       })
     },
 
@@ -30,8 +31,8 @@
     text-align: center;
   }
   .block {
-    height: 500px;
-    padding: 20px;
+    width: 50vw;
+    height: 50vh;
     margin-bottom: 30px;
     background-color: #f3f3f3;
   }
