@@ -1,88 +1,40 @@
+<script setup>
+import { ref } from 'vue'
+
+defineProps({
+  msg: String
+})
+
+const count = ref(0)
+</script>
+
 <template>
-  <div class="hello" ref="hello">
-    <h1>{{ msg }}</h1>
+  <h1>{{ msg }}</h1>
 
-    <el-form label-width="120px">
-      <el-row>
-        <el-col :span="12">
-          <el-form-item label="申请日期">
-            <el-input v-model="form.date"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="12">
-          <el-form-item label="流水号">
-            <el-input v-model="form.taskId"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="12">
-          <el-form-item label="金额">
-            <el-input v-model="form.amt"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="12">
-          <el-form-item label="币种">
-            <el-input v-model="form.amt"></el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
-    </el-form>
-
-    <el-table border :data="tableData" style="margin-top: 20px">
-      <el-table-column
-        align="center"
-        v-for="t in tableColumn"
-        :prop="t.prop"
-        :label="t.label"
-        :key="t.prop"
-      ></el-table-column>
-      <el-table-column align="center" label="操作">
-        <el-link type="primary" @click="toDetail">详情</el-link>
-      </el-table-column>
-    </el-table>
-
-    <el-button style="margin-top: 30px" type="primary" @click="submit">提交</el-button>
+  <div class="card">
+    <button type="button" @click="count++">count is {{ count }}</button>
+    <p>
+      Edit
+      <code>components/HelloWorld.vue</code> to test HMR
+    </p>
   </div>
+
+  <p>
+    Check out
+    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
+      >create-vue</a
+    >, the official Vue + Vite starter
+  </p>
+  <p>
+    Install
+    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
+    in your IDE for a better DX
+  </p>
+  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
-<script>
-  export default {
-    name: 'HelloWorld',
-    props: {
-      msg: String
-    },
-
-    data() {
-      return {
-        form: {},
-        tableData: [],
-        tableColumn: [
-          { prop: 'ccy', label: '币种' },
-          { prop: 'amt', label: '金额' },
-          { prop: 'date', label: '日期' },
-          { prop: 'taskId', label: '流水号' }
-        ]
-      }
-    },
-
-    mounted() {
-      for (let i = 10; i <= 30; i++) {
-        this.tableData.push({
-          taskId: '202207' + i,
-          ccy: 'rmb',
-          date: '07' + i,
-          amt: '10000' + i
-        })
-      }
-    },
-
-    methods: {
-      submit() {
-        this.$message.warning('iframe 提示信息测试')
-      },
-
-      toDetail() {
-        this.$router.push('/about')
-      }
-    }
-  }
-</script>
+<style scoped>
+.read-the-docs {
+  color: #888;
+}
+</style>
