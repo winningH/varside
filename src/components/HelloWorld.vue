@@ -36,6 +36,7 @@
   import { ref } from 'vue'
   import { message } from 'ant-design-vue'
   import 'ant-design-vue/es/message/style/css'
+  import { useRouter } from 'vue-router'
 
   defineProps({
     msg: String
@@ -43,8 +44,10 @@
 
   const count = ref(0)
 
+  const router = useRouter()
   function handleClick() {
-    message.warning('This is a normal message')
+    router.push({ path: '/loading', query: { name: 'arrow' } })
+    message.info('to loading')
   }
 </script>
 

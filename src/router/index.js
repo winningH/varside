@@ -1,15 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-const Home = { template: '<div>Home</div>' }
 
 const routes = [
   {
     path: '/',
     component: () => import('@/components/HelloWorld.vue')
+  },
+  {
+    path: '/loading',
+    component: () => import('@/views/AniLoading.vue')
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.VITE_BASE_ROUTER),
   routes
 })
 
