@@ -39,7 +39,10 @@
   import { useRouter } from 'vue-router'
 
   defineProps({
-    msg: String
+    msg: {
+      type: String,
+      default: 'hello vite'
+    }
   })
 
   const count = ref(0)
