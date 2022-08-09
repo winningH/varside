@@ -5,9 +5,9 @@ cache:
   directiries:
     - node_modules
 install:
-  - npm ci
+  - yarn ci
 script:
-  - npm run build
+  - yarn build
 deploy:
   provide: pages
   skip_cleanup: true
