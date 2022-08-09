@@ -1,7 +1,6 @@
 <template>
-  <div>loading page</div>
+  <div>loading {{ route.query.name }} page</div>
   <a-button type="primary" @click="back">back</a-button>
-  {{ route.query.name }}
 </template>
 
 <script setup>
