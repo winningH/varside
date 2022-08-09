@@ -5,7 +5,7 @@ cache:
   directiries:
     - node_modules
 install:
-  - yarn ci
+  - yarn install
 script:
   - yarn build
 deploy:
