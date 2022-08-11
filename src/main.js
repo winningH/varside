@@ -3,4 +3,6 @@ import './styles/style.css'
 import App from './App.vue'
 import router from './router'
 
-createApp(App).use(router).mount('#app')
+import GlobalComponent from '@/components/global'
+
+createApp(App).use(router).use(GlobalComponent).mount('#app')

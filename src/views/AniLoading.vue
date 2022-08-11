@@ -1,6 +1,10 @@
 <template>
-  <div>loading {{ route.query.name }} page</div>
-  <a-button type="primary" @click="back">back</a-button>
+  <Layout>
+    <div class="page">
+      <div>loading {{ route.query.name }} page</div>
+      <a-button type="primary" @click="back">back</a-button>
+    </div>
+  </Layout>
 </template>
 
 <script setup>
@@ -12,4 +16,11 @@
   }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .page {
+    width: 600px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+  }
+</style>

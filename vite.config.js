@@ -28,7 +28,7 @@ export default ({ mode }) => {
     },
 
     server: {
-      port: '8000'
+      port: '8080'
     },
 
     build: {
