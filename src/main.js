@@ -4,5 +4,6 @@ import App from './App.vue'
 import router from './router'
 
 import GlobalComponent from '@/components/global'
+import { createPinia } from 'pinia'
 
-createApp(App).use(router).use(GlobalComponent).mount('#app')
+createApp(App).use(createPinia()).use(router).use(GlobalComponent).mount('#app')

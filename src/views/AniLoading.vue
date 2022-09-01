@@ -16,7 +16,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
   .page {
     width: 600px;
     height: 500px;
