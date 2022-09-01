@@ -1,1 +1,0 @@
-import{_ as t,o,b as s,J as _}from"./index.e2db990d.js";const n={name:"Layout",setup(){}},a={class:"layout"};function c(e,d,r,u,p,l){return o(),s("div",a,[_(e.$slots,"default",{},void 0,!0)])}const f=t(n,[["render",c],["__scopeId","data-v-e673dcbd"]]);export{f as default};
