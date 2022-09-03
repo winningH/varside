@@ -19,7 +19,7 @@ export default ({ mode }) => {
       })
     ],
 
-    base: loadEnv(mode, process.cwd()).VITE_BASE_ROUTER,
+    base: loadEnv(mode, process.cwd()).VITE_BASE_URL,
 
     resolve: {
       alias: {

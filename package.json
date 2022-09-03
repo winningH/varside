@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "vite build",
+    "build:github": "vite build --mode github",
     "dev": "vite",
     "preview": "vite preview"
   },

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 
 const routes = [
   {
@@ -12,7 +12,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.VITE_BASE_ROUTER),
+  history: import.meta.env.MODE === 'github' ? createWebHashHistory() : createWebHistory(import.meta.env.VITE_BASE_URL),
   routes
 })
 
