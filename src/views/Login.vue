@@ -1,6 +1,6 @@
 <template>
   <div class="login-page">
-    <div class="title">
+    <div class="title login-button">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
       <h1>欢迎</h1>
       <img src="../assets/vue.svg" class="logo vue" alt="Vue logo" />
@@ -10,7 +10,7 @@
         <a-input v-model:value="user.account" allowClear></a-input>
       </a-form-item>
       <a-form-item v-bind="validateInfos.password" label="密码">
-        <a-input-password v-model:value="user.password" allowClear></a-input-password>
+        <a-input-password v-model:value="user.password" allowClear @pressEnter="login"></a-input-password>
       </a-form-item>
       <a-form-item>
         <a-button class="login-button" type="primary" @click="login" :loading="loading">登录</a-button>
@@ -22,13 +22,13 @@
 <script setup>
   // unplugin-auto-import 插件自动引入了 useRouter, ref, reactive
   import { Form, message } from 'ant-design-vue'
+  import { useLoginStore } from '@/store/login'
   const useForm = Form.useForm
 
   const user = reactive({
     account: '',
     password: ''
   })
-
   const userRules = reactive({
     account: [{ required: true, message: '请输入账号' }],
     password: [{ required: true, message: '请输入密码' }]
@@ -39,20 +39,22 @@
   const loading = ref(false)
   const router = useRouter()
 
+  const loginStore = useLoginStore()
+
   const login = async () => {
     try {
       let res = await validate()
       const { account, password } = res
-      console.log(account, password)
       loading.value = true
-      console.log('fail')
       setTimeout(() => {
-        if (account !== 'admin' || password !== 'admin') {
+        if (password !== 'admin') {
           message.error('账号或密码错误，请重试')
           loading.value = false
           return
         }
         loading.value = false
+        loginStore.saveLoginTime(Date.now())
+        loginStore.saveUserInfo(account)
         router.replace('/')
       }, 600)
     } catch (error) {}
