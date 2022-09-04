@@ -6,7 +6,8 @@ export const useLoginStore = defineStore('counter', {
   getters: {
     isLogin: state => {
       let now = Date.now()
-      return now - state.loginTime >= 60000
+      let hour = 60 * 60 * 1000
+      return now - state.loginTime <= hour
     }
   },
 
