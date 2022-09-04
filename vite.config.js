@@ -44,7 +44,7 @@ export default ({ mode }) => {
     },
 
     build: {
-      outDir: 'varside'
+      outDir: 'dist'
     }
   })
 }
