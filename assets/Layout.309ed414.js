@@ -1,1 +1,0 @@
-import{_ as o,o as t,b as s,J as n}from"./index.6d450283.js";const _={name:"Layout",setup(){}},a={class:"layout"};function c(e,d,r,u,l,i){return t(),s("div",a,[n(e.$slots,"default",{},void 0,!0)])}const f=o(_,[["render",c],["__scopeId","data-v-9bde2970"],["__file","/home/travis/build/winningH/varside/src/components/global/Layout.vue"]]);export{f as default};
