@@ -11,22 +11,24 @@
   }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
   .layout {
-    width: 1600px;
-    padding: 80px 20px 0;
+    min-width: 1100px;
+    width: 85%;
+    padding: 80px 20px 20px;
     margin: 0 auto;
+    box-sizing: border-box;
   }
 
-  @media (max-width: 1700px) {
+  @media (min-width: 1350px) and (max-width: 1500px) {
     .layout {
-      width: 1390px;
+      width: 1280px;
     }
   }
 
-  @media (max-width: 1500px) {
+  @media (min-width: 1600px) {
     .layout {
-      width: 1150px;
+      width: 1420px;
     }
   }
 </style>
