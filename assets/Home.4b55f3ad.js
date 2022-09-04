@@ -1,1 +1,0 @@
-import{_ as e,r as o,o as _,c as s}from"./index.83d67edd.js";const t={class:"home"},a={__name:"Home",props:{msg:{type:String,default:"hello vite"}},setup(c){return o(0),(r,n)=>(_(),s("div",t,"welcome to my homepage"))}},i=e(a,[["__scopeId","data-v-2dc54a20"],["__file","/home/travis/build/winningH/varside/src/views/Home.vue"]]);export{i as default};
