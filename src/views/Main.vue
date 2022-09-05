@@ -8,9 +8,10 @@
   </div>
 </template>
 
-<script name="Main" setup>
-  import { ref, reactive, computed, watch } from 'vue'
-  import { useRouter, useRoute } from 'vue-router'
+<script setup>
+  defineOptions({
+    name: 'Main'
+  })
 </script>
 
 <style scoped>

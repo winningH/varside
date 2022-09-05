@@ -2,6 +2,10 @@
   <div>Animation</div>
 </template>
 
-<script name="Animation" setup></script>
+<script setup>
+  defineOptions({
+    name: 'Animation'
+  })
+</script>
 
 <style scoped></style>

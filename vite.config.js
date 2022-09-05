@@ -3,6 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+import DefineOptions from 'unplugin-vue-define-options/vite'
+
 import path from 'path'
 
 // https://vitejs.dev/config/
@@ -15,6 +17,7 @@ export default ({ mode }) => {
     },
     plugins: [
       vue(),
+      DefineOptions(),
       AutoImport({
         include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/],
         imports: ['vue', 'vue-router'],

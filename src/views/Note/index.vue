@@ -2,6 +2,10 @@
   <div>note</div>
 </template>
 
-<script name="Note" setup></script>
+<script setup>
+  defineOptions({
+    name: 'Note'
+  })
+</script>
 
 <style scoped></style>

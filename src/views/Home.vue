@@ -2,7 +2,11 @@
   <div class="home">welcome to my homepage</div>
 </template>
 
-<script setup></script>
+<script setup>
+  defineOptions({
+    name: 'Home'
+  })
+</script>
 
 <style scoped>
   .home {

@@ -7,7 +7,7 @@
     </div>
     <a-form :model="user" :rules="userRules" :label-col="{ style: 'width: 60px' }">
       <a-form-item v-bind="validateInfos.account" label="账号">
-        <a-input v-model:value="user.account" allowClear></a-input>
+        <a-input v-model:value="user.account" :maxlength="8" allowClear></a-input>
       </a-form-item>
       <a-form-item v-bind="validateInfos.password" label="密码">
         <a-input-password v-model:value="user.password" allowClear @pressEnter="login"></a-input-password>
@@ -23,6 +23,11 @@
   // unplugin-auto-import 插件自动引入了 useRouter, ref, reactive
   import { Form, message } from 'ant-design-vue'
   import { useLoginStore } from '@/store/login'
+
+  defineOptions({
+    name: 'Login'
+  })
+
   const useForm = Form.useForm
 
   const user = reactive({
