@@ -1,11 +1,21 @@
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 import { useLoginStore } from '../store/login'
 import { message } from 'ant-design-vue'
+import HomeChildren from './homeChildren'
 
 const routes = [
   {
     path: '/',
-    component: () => import('@/views/Home.vue')
+    redirect: '/home',
+    component: () => import('@/views/Main.vue'),
+    children: [
+      {
+        path: '/home',
+        name: 'Home',
+        component: () => import('@/views/Home.vue')
+      },
+      ...HomeChildren
+    ]
   },
   {
     path: '/login',
