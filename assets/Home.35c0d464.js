@@ -1,0 +1,1 @@
+import{_ as e,d as o,o as s,c as _}from"./index.b8a1e3ba.js";const t=o({name:"Home"}),c={class:"home"};function n(a,d,i,m,r,p){return s(),_("div",c,"welcome to my homepage")}const f=e(t,[["render",n],["__scopeId","data-v-2dc54a20"],["__file","/home/travis/build/winningH/varside/src/views/Home.vue"]]);export{f as default};
