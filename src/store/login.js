@@ -21,8 +21,5 @@ export const useLoginStore = defineStore('counter', {
     }
   },
 
-  persist: {
-    enabled: true,
-    strategies: [{ storage: localStorage, key: 'login' }]
-  }
+  persist: { storage: localStorage, key: 'login' }
 })

@@ -12,12 +12,5 @@ export const useSettingStore = defineStore('setting', {
     }
   },
 
-  persist: {
-    enabled: true,
-    strategies: [
-      {
-        storage: window.localStorage
-      }
-    ]
-  }
+  persist: { storage: localStorage, key: 'setting' }
 })
