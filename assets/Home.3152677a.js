@@ -1,1 +1,0 @@
-import{$ as e,d as o,a3 as s,a4 as a}from"./index.3f749dac.js";const t=o({name:"Home"}),_={class:"home"};function n(c,d,i,m,r,p){return s(),a("div",_,"welcome to my homepage")}const f=e(t,[["render",n],["__scopeId","data-v-2dc54a20"],["__file","/home/travis/build/winningH/varside/src/views/Home.vue"]]);export{f as default};

@@ -1,0 +1,1 @@
+import{$ as e,d as n,a3 as o,a4 as t}from"./index.d53ab91f.js";const s=n({name:"MyComponent"}),a=Object.assign(s,{setup(i){return(_,c)=>(o(),t("div",null,"MyComponent"))}}),p=e(a,[["__file","/home/travis/build/winningH/varside/src/views/Component/index.vue"]]);export{p as default};
