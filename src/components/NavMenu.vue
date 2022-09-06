@@ -1,9 +1,13 @@
 <template>
   <header class="site-head">
     <div class="home" @click="changeRouter('home')">
-      <img class="home-svg" src="../assets/home.svg" alt="" />
+      <img class="home-svg" src="../assets/home.svg" alt="home" />
     </div>
-    <a-menu v-model:selectedKeys="settingStore.menu" mode="horizontal" @select="menuSelect">
+    <a-menu
+      v-model:selectedKeys="settingStore.menu"
+      mode="horizontal"
+      @select="({ key }) => changeRouter(key)"
+    >
       <a-menu-item key="component">组件</a-menu-item>
       <a-menu-item key="note">笔记</a-menu-item>
       <a-menu-item key="animation">动画</a-menu-item>
@@ -13,7 +17,7 @@
       欢迎：
       <a-dropdown>
         <a class="ant-dropdown-link" @click.prevent>
-          {{ loginStore.userName }}
+          {{ userStore.userName }}
         </a>
         <template #overlay>
           <a-menu @click="({ key }) => changeRouter(key)">
@@ -30,26 +34,20 @@
 
 <script setup>
   import { useRouter } from 'vue-router'
-  import { useSettingStore } from '@/store/setting'
-  import { useLoginStore } from '@/store/login'
+  import { useUser } from '@/store/user'
+  import { useSetting } from '@/store/setting'
 
   defineOptions({
     name: 'NavMenu'
   })
 
   const router = useRouter()
+  const settingStore = useSetting()
+  const userStore = useUser()
 
-  const settingStore = useSettingStore()
-  const loginStore = useLoginStore()
-
-  const changeRouter = (path, menu = []) => {
+  const changeRouter = path => {
     if (!path) return
-    settingStore.changeMenu(menu)
     router.push(`/${path}`)
-  }
-
-  const menuSelect = ({ key }) => {
-    changeRouter(key, [key])
   }
 </script>
 

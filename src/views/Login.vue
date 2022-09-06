@@ -6,14 +6,20 @@
       <img src="../assets/vue.svg" class="logo vue" alt="Vue logo" />
     </div>
     <a-form :model="user" :rules="userRules" :label-col="{ style: 'width: 60px' }">
-      <a-form-item v-bind="validateInfos.account" label="账号">
-        <a-input v-model:value="user.account" :maxlength="8" allowClear></a-input>
+      <a-form-item v-bind="validateInfos.userName" label="账号">
+        <a-input v-model:value="user.userName" :maxlength="8" allowClear></a-input>
       </a-form-item>
       <a-form-item v-bind="validateInfos.password" label="密码">
-        <a-input-password v-model:value="user.password" allowClear @pressEnter="login"></a-input-password>
+        <a-input-password
+          v-model:value="user.password"
+          allowClear
+          @pressEnter="login"
+        ></a-input-password>
       </a-form-item>
       <a-form-item>
-        <a-button class="login-button" type="primary" @click="login" :loading="loading">登录</a-button>
+        <a-button class="login-button" type="primary" @click="login" :loading="loading"
+          >登录</a-button
+        >
       </a-form-item>
     </a-form>
   </div>
@@ -22,34 +28,32 @@
 <script setup>
   // unplugin-auto-import 插件自动引入了 useRouter, ref, reactive
   import { Form, message } from 'ant-design-vue'
-  import { useLoginStore } from '@/store/login'
+  import { useUser } from '@/store/user'
+  import { formatDate } from '@/utils'
 
   defineOptions({
     name: 'Login'
   })
 
   const useForm = Form.useForm
-
   const user = reactive({
-    account: '',
+    userName: '',
     password: ''
   })
   const userRules = reactive({
-    account: [{ required: true, message: '请输入账号' }],
+    userName: [{ required: true, message: '请输入账号' }],
     password: [{ required: true, message: '请输入密码' }]
   })
-
   const { validate, validateInfos } = useForm(user, userRules)
 
   const loading = ref(false)
   const router = useRouter()
-
-  const loginStore = useLoginStore()
+  const userStore = useUser()
 
   const login = async () => {
     try {
       let res = await validate()
-      const { account, password } = res
+      const { userName, password } = res
       loading.value = true
       setTimeout(() => {
         if (password !== 'admin') {
@@ -58,8 +62,10 @@
           return
         }
         loading.value = false
-        loginStore.saveLoginTime(Date.now())
-        loginStore.saveUserInfo(account)
+        userStore.saveUserInfo({
+          userName,
+          lastLogin: formatDate(new Date(), 'YYYY-MM-DD HH:mm:ss')
+        })
         router.replace('/')
       }, 600)
     } catch (error) {}

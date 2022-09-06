@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
-import { useLoginStore } from '../store/login'
+import { useUser } from '@/store/user'
 import { message } from 'ant-design-vue'
 import HomeChildren from './homeChildren'
 
@@ -34,7 +34,10 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: import.meta.env.MODE === 'github' ? createWebHashHistory() : createWebHistory(import.meta.env.VITE_BASE_URL),
+  history:
+    import.meta.env.MODE === 'github'
+      ? createWebHashHistory()
+      : createWebHistory(import.meta.env.VITE_BASE_URL),
   routes
 })
 
@@ -43,7 +46,7 @@ function sleep(time) {
 }
 
 router.beforeEach(async (to, from) => {
-  const store = useLoginStore()
+  const store = useUser()
   if (to.path !== '/login' && !store.isLogin) {
     message.warning('登录已过期')
     await sleep(3000)

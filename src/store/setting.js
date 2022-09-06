@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-export const useSettingStore = defineStore('setting', {
+export const useSetting = defineStore('setting', {
   state: () => ({
     menu: [],
     lang: 'zh-CN'
