@@ -1,5 +1,7 @@
 <template>
-  <router-view />
+  <a-config-provider :locale="settingStore.ant_locale">
+    <router-view />
+  </a-config-provider>
 </template>
 
 <script>
@@ -17,6 +19,10 @@
         let menu = route.path.split('/')[1]
         settingStore.changeMenu([menu])
       })
+
+      return {
+        settingStore
+      }
     }
   }
 </script>

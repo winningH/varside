@@ -8,10 +8,17 @@
       mode="horizontal"
       @select="({ key }) => changeRouter(key)"
     >
-      <a-menu-item key="component">组件</a-menu-item>
-      <a-menu-item key="note">笔记</a-menu-item>
-      <a-menu-item key="animation">动画</a-menu-item>
+      <a-menu-item key="component">{{ $t('comp') }}</a-menu-item>
+      <a-menu-item key="note">{{ $t('note') }}</a-menu-item>
+      <a-menu-item key="animation">{{ $t('animation') }}</a-menu-item>
     </a-menu>
+
+    <div class="lang-radio">
+      <a-radio-group size="small" v-model:value="lang" @change="changeLang">
+        <a-radio-button value="zh">{{ $t('zh') }}</a-radio-button>
+        <a-radio-button value="en">{{ $t('en') }}</a-radio-button>
+      </a-radio-group>
+    </div>
 
     <div>
       欢迎：
@@ -22,9 +29,11 @@
         <template #overlay>
           <a-menu @click="({ key }) => changeRouter(key)">
             <a-menu-item>
-              <a href="https://github.com/winningH" target="_blank">个人中心 <github-outlined /></a>
+              <a href="https://github.com/winningH" target="_blank">
+                {{ $t('person') }} <github-outlined />
+              </a>
             </a-menu-item>
-            <a-menu-item key="login">退出 <logout-outlined /></a-menu-item>
+            <a-menu-item key="login">{{ $t('logout') }} <logout-outlined /></a-menu-item>
           </a-menu>
         </template>
       </a-dropdown>
@@ -43,11 +52,16 @@
 
   const router = useRouter()
   const settingStore = useSetting()
+  const lang = ref(settingStore.lang)
   const userStore = useUser()
 
   const changeRouter = path => {
     if (!path) return
     router.push(`/${path}`)
+  }
+
+  const changeLang = () => {
+    settingStore.changeLanguage(lang.value)
   }
 </script>
 
@@ -77,6 +91,9 @@
       border-bottom: none;
       flex: 1;
       margin: 0 20px;
+    }
+    .lang-radio {
+      margin-right: 30px;
     }
   }
 </style>
