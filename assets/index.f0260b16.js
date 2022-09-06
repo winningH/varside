@@ -1,1 +1,0 @@
-import{$ as n,d as e,a3 as i,a4 as a}from"./index.d53ab91f.js";const o=e({name:"Animation"});function t(s,r,c,d,m,_){return i(),a("div",null,"Animation")}const f=n(o,[["render",t],["__file","/home/travis/build/winningH/varside/src/views/Animation/index.vue"]]);export{f as default};

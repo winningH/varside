@@ -1,1 +1,0 @@
-import{$ as e,d as n,a3 as o,a4 as t}from"./index.d53ab91f.js";const s=n({name:"Note"});function a(i,r,c,d,_,p){return o(),t("div",null,"note")}const l=e(s,[["render",a],["__file","/home/travis/build/winningH/varside/src/views/Note/index.vue"]]);export{l as default};
