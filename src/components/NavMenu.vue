@@ -27,13 +27,15 @@
           {{ userStore.userName }}
         </a>
         <template #overlay>
-          <a-menu @click="({ key }) => changeRouter(key)">
+          <a-menu>
             <a-menu-item>
               <a href="https://github.com/winningH" target="_blank">
                 {{ $t('person') }} <github-outlined />
               </a>
             </a-menu-item>
-            <a-menu-item key="login">{{ $t('logout') }} <logout-outlined /></a-menu-item>
+            <a-menu-item @click="logout" key="login">
+              {{ $t('logout') }} <logout-outlined />
+            </a-menu-item>
           </a-menu>
         </template>
       </a-dropdown>
@@ -45,6 +47,7 @@
   import { useRouter } from 'vue-router'
   import { useUserStore } from '@/store/user'
   import { useSettingStore } from '@/store/setting'
+  import { useClearStore } from '@/store/clear'
 
   defineOptions({
     name: 'NavMenu'
@@ -54,14 +57,19 @@
   const settingStore = useSettingStore()
   const lang = ref(settingStore.lang)
   const userStore = useUserStore()
+  const clear = useClearStore()
 
   const changeRouter = path => {
-    if (!path) return
     router.push(`/${path}`)
   }
 
   const changeLang = () => {
     settingStore.changeLanguage(lang.value)
+  }
+
+  const logout = () => {
+    clear.clearAllStore()
+    router.replace('/login')
   }
 </script>
 

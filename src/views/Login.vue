@@ -76,7 +76,7 @@
 
 <style lang="less" scoped>
   .login-page {
-    width: 300px;
+    width: 350px;
     margin: 200px auto 0;
     .title {
       display: flex;
