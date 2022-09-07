@@ -1,0 +1,1 @@
+import{N as e,d as o,Q as r,R as s}from"./index.891f5b00.js";const n=o({name:"Error",components:{},props:{},setup(){}}),t={class:"error"};function _(c,a,p,d,i,u){return r(),s("div",t,"404 not found")}const l=e(n,[["render",_],["__scopeId","data-v-70960ca2"],["__file","/home/travis/build/winningH/varside/src/views/Error.vue"]]);export{l as default};
