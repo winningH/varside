@@ -5,7 +5,7 @@ import Ant_en from 'ant-design-vue/es/locale/en_US'
 export const useSettingStore = defineStore('setting', {
   state: () => ({
     menu: [],
-    lang: 'zh'
+    lang: 'en'
   }),
 
   getters: {
