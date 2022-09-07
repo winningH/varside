@@ -43,17 +43,17 @@
 
 <script setup>
   import { useRouter } from 'vue-router'
-  import { useUser } from '@/store/user'
-  import { useSetting } from '@/store/setting'
+  import { useUserStore } from '@/store/user'
+  import { useSettingStore } from '@/store/setting'
 
   defineOptions({
     name: 'NavMenu'
   })
 
   const router = useRouter()
-  const settingStore = useSetting()
+  const settingStore = useSettingStore()
   const lang = ref(settingStore.lang)
-  const userStore = useUser()
+  const userStore = useUserStore()
 
   const changeRouter = path => {
     if (!path) return

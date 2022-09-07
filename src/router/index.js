@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
-import { useUser } from '@/store/user'
-import { useSetting } from '@/store/setting'
+import { useUserStore } from '@/store/user'
+import { useSettingStore } from '@/store/setting'
 import { message } from 'ant-design-vue'
 import HomeChildren from './homeChildren'
 
@@ -47,8 +47,8 @@ function sleep(time) {
 }
 
 router.beforeEach(async (to, from) => {
-  const user = useUser()
-  const setting = useSetting()
+  const user = useUserStore()
+  const setting = useSettingStore()
   let menu = to.path.split('/')[1]
   setting.changeMenu([menu])
 

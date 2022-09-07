@@ -5,13 +5,13 @@
 </template>
 
 <script>
-  import { useSetting } from './store/setting'
+  import { useSettingStore } from './store/setting'
   import { useI18n } from 'vue-i18n'
 
   export default {
     name: 'App',
     setup() {
-      const settingStore = useSetting()
+      const settingStore = useSettingStore()
       const { locale } = useI18n()
 
       watchEffect(() => {

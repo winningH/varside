@@ -9,14 +9,14 @@
 </template>
 
 <script setup>
-  import { useUser } from '@/store/user'
+  import { useUserStore } from '@/store/user'
   import { storeToRefs } from 'pinia'
 
   defineOptions({
     name: 'Home'
   })
 
-  const userStore = useUser()
+  const userStore = useUserStore()
   const { lastLogin } = storeToRefs(userStore)
 
   const currentDate = ref()

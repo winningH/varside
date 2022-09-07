@@ -28,7 +28,7 @@
 <script setup>
   // unplugin-auto-import 插件自动引入了 useRouter, ref, reactive
   import { Form, message } from 'ant-design-vue'
-  import { useUser } from '@/store/user'
+  import { useUserStore } from '@/store/user'
   import { formatDate } from '@/utils'
   import { useI18n } from 'vue-i18n'
 
@@ -50,7 +50,7 @@
 
   const loading = ref(false)
   const router = useRouter()
-  const userStore = useUser()
+  const userStore = useUserStore()
 
   const login = async () => {
     try {

@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import Ant_zh from 'ant-design-vue/es/locale/zh_CN'
 import Ant_en from 'ant-design-vue/es/locale/en_US'
 
-export const useSetting = defineStore('setting', {
+export const useSettingStore = defineStore('setting', {
   state: () => ({
     menu: [],
     lang: 'zh'
