@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 import { useUser } from '@/store/user'
+import { useSetting } from '@/store/setting'
 import { message } from 'ant-design-vue'
 import HomeChildren from './homeChildren'
 
@@ -46,8 +47,12 @@ function sleep(time) {
 }
 
 router.beforeEach(async (to, from) => {
-  const store = useUser()
-  if (to.path !== '/login' && !store.isLogin) {
+  const user = useUser()
+  const setting = useSetting()
+  let menu = to.path.split('/')[1]
+  setting.changeMenu([menu])
+
+  if (to.path !== '/login' && !user.isLogin) {
     message.warning('登录已过期')
     await sleep(3000)
     return '/login'

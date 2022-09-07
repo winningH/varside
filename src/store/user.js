@@ -22,5 +22,5 @@ export const useUser = defineStore('user', {
     }
   },
 
-  persist: { storage: localStorage, key: 'login' }
+  persist: true
 })
