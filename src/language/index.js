@@ -1,16 +1,15 @@
 import { createI18n } from 'vue-i18n'
-import { toRaw, toRef } from 'vue'
-import { useSetting } from '@/store/setting'
-import pinia from '@/store'
-
-const store = useSetting(pinia)
 
 import enLocale from './en-us'
 import zhLocale from './zh-cn'
 
+import 'dayjs/locale/zh-cn'
+import 'dayjs/locale/en'
+
 const i18n = createI18n({
   legacy: false,
-  locale: store.lang,
+  locale: 'en',
+  fallbackLocale: 'en',
   messages: {
     en: enLocale,
     zh: zhLocale

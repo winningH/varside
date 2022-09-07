@@ -2,14 +2,14 @@
   <div class="login-page">
     <div class="title login-button">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
-      <h1>欢迎</h1>
+      <h1>{{ $t('welcome') }}</h1>
       <img src="../assets/vue.svg" class="logo vue" alt="Vue logo" />
     </div>
-    <a-form :model="user" :rules="userRules" :label-col="{ style: 'width: 60px' }">
-      <a-form-item v-bind="validateInfos.userName" label="账号">
+    <a-form :model="user" :rules="userRules" :label-col="{ style: 'width: 90px' }">
+      <a-form-item v-bind="validateInfos.userName" :label="$t('account')">
         <a-input v-model:value="user.userName" :maxlength="8" allowClear></a-input>
       </a-form-item>
-      <a-form-item v-bind="validateInfos.password" label="密码">
+      <a-form-item v-bind="validateInfos.password" :label="$t('password')">
         <a-input-password
           v-model:value="user.password"
           allowClear
@@ -17,9 +17,9 @@
         ></a-input-password>
       </a-form-item>
       <a-form-item>
-        <a-button class="login-button" type="primary" @click="login" :loading="loading"
-          >登录</a-button
-        >
+        <a-button class="login-button" type="primary" @click="login" :loading="loading">
+          {{ $t('login') }}
+        </a-button>
       </a-form-item>
     </a-form>
   </div>
@@ -30,19 +30,21 @@
   import { Form, message } from 'ant-design-vue'
   import { useUser } from '@/store/user'
   import { formatDate } from '@/utils'
+  import { useI18n } from 'vue-i18n'
 
   defineOptions({
     name: 'Login'
   })
 
+  const { t } = useI18n()
   const useForm = Form.useForm
   const user = reactive({
     userName: '',
     password: ''
   })
   const userRules = reactive({
-    userName: [{ required: true, message: '请输入账号' }],
-    password: [{ required: true, message: '请输入密码' }]
+    userName: [{ required: true, message: t('errorAccount') }],
+    password: [{ required: true, message: t('errorPassword') }]
   })
   const { validate, validateInfos } = useForm(user, userRules)
 
@@ -95,8 +97,8 @@
   }
 
   .login-button {
-    width: calc(100% - 60px);
-    margin-left: 60px;
+    width: calc(100% - 90px);
+    margin-left: 90px;
   }
 
   @media (max-width: 575px) {

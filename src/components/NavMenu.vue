@@ -4,7 +4,7 @@
       <img class="home-svg" src="../assets/home.svg" alt="home" />
     </div>
     <a-menu
-      v-model:selectedKeys="settingStore.menu"
+      :selectedKeys="settingStore.menu"
       mode="horizontal"
       @select="({ key }) => changeRouter(key)"
     >

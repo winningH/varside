@@ -9,5 +9,7 @@ export default {
   person: '个人中心',
   logout: '退出',
   zh: '中',
-  en: '英'
+  en: '英',
+  errorAccount: '请输入账号',
+  errorPassword: '请输入密码'
 }

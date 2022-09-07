@@ -9,5 +9,7 @@ export default {
   person: 'person',
   logout: 'logout',
   zh: 'zh',
-  en: 'en'
+  en: 'en',
+  errorAccount: 'please input account',
+  errorPassword: 'please input password'
 }
