@@ -16,6 +16,7 @@
 
 <style scoped>
   .router-page {
-    padding: 80px 30px 20px;
+    padding: 60px 30px 20px;
+    height: 100vh;
   }
 </style>

@@ -25,6 +25,7 @@ export default ({ mode }) => {
       }),
 
       Components({
+        dirs: ['src/components', 'src/views/Component/components'],
         resolvers: [
           AntDesignVueResolver({
             // 自动引入ant-design/icons-vue中的图标，需要安装@ant-design/icons-vue
