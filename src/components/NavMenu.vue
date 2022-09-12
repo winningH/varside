@@ -2,6 +2,7 @@
   <header class="site-head">
     <div class="home" @click="changeRouter('home')">
       <img class="home-svg" src="../assets/home.svg" alt="home" />
+      <span class="home-text"> <i>wo</i></span>
     </div>
     <a-menu
       :selectedKeys="settingStore.menu"
@@ -86,12 +87,20 @@
     box-shadow: 0 28px 50px #f0f1f2;
     display: flex;
     align-items: center;
+    background-color: #fff;
 
     .home {
       cursor: pointer;
     }
     .home-svg {
       height: 3em;
+    }
+    .home-text {
+      margin-left: 10px;
+      font-size: 26px;
+      font-weight: 400;
+      color: rgb(204, 77, 98);
+      vertical-align: middle;
     }
 
     .ant-menu-horizontal {
